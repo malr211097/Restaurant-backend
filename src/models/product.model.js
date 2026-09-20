@@ -1,4 +1,4 @@
-const {   } = require('sequelize')
+const {DataTypes} = require('sequelize')
 const sequelize = require('../config/database')
 
 const Product = sequelize.define('Product',{
@@ -34,7 +34,7 @@ description: {
             notEmpty: {
                 msg: 'Product price can not be empty'
             },
-            IsDecimal: {
+            isDecimal: {
                 msg: 'Product price must be a decimal number'
             },
             min: {
@@ -44,7 +44,7 @@ description: {
          }
      }
      },{
-        tableName: 'user',
+        tableName: 'product',
         timestamps: true,
         paranoid: true,
      })

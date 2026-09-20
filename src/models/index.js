@@ -2,7 +2,7 @@ const sequelize = require('../config/database')
 const User = require('./user.model')
 const Product = require('./product.model')
 const Sale = require('./sale.model')
-const saleProduct = require('./saleProduct.model')
+const SaleProduct = require('./saleProduct.model')
 
 User.hasMany(Sale,{
     foreignKey: 'userId',
@@ -16,7 +16,7 @@ Sale.belongsTo(User,{
     as: 'user',
 })
 
-Sale.hasMany(saleProduct,{
+Sale.hasMany(SaleProduct,{
     foreignKey: 'saleId',
     as: 'saleProducts',
     onDelete: 'RESTRICT',
@@ -28,7 +28,7 @@ SaleProduct.belongsTo(Sale,{
     as: 'sale',
 })
 
-Product.hasMany(saleProduct,{
+Product.hasMany(SaleProduct,{
     foreignKey: 'productId',
     as: 'saleProducts',
     onDelete: 'RESTRICT',
@@ -45,5 +45,5 @@ module.exports = {
    User,
    Product,
     Sale,
-    ProductSale
+    SaleProduct
  }
